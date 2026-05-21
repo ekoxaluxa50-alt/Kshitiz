@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pursuit of Jade is an interactive expedition page about finding three relic fragments before the temple seal closes."
+    />
+    <title>Pursuit of Jade</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="hero">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Pursuit of Jade home">
+          <span class="brand-mark">◆</span>
+          <span>Pursuit of Jade</span>
+        </a>
+        <div class="nav-links">
+          <a href="#expedition">Expedition</a>
+          <a href="#relic">Relic</a>
+          <a href="#chronicle">Chronicle</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">A moonlit relic chase</p>
+          <h1>Track the lost Jade Heart before the temple seals again.</h1>
+          <p class="hero-text">
+            Choose your route, gather three luminous fragments, and decode the
+            old astronomer's cipher before the monsoon erases the trail.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#expedition">Begin pursuit</a>
+            <button class="button ghost" id="reset-expedition" type="button">Reset trail</button>
+          </div>
+        </div>
+
+        <aside class="relic-card" aria-label="Jade Heart status">
+          <div class="moon-disc">
+            <span class="jade-core"></span>
+          </div>
+          <p class="status-label">Temple seal integrity</p>
+          <div class="meter" aria-label="Jade Heart completion">
+            <span id="jade-meter"></span>
+          </div>
+          <p id="seal-status" class="seal-status">Three fragments remain hidden.</p>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section intro-panel" aria-labelledby="mission-title">
+        <div>
+          <p class="eyebrow">Mission brief</p>
+          <h2 id="mission-title">The map is alive, but it only trusts decisive explorers.</h2>
+        </div>
+        <p>
+          Each route reveals one fragment of the Jade Heart. Pick a lead, read
+          the terrain, and advance the expedition to add its clue to your log.
+        </p>
+      </section>
+
+      <section id="expedition" class="section expedition-grid" aria-labelledby="expedition-title">
+        <div class="section-heading">
+          <p class="eyebrow">Choose a route</p>
+          <h2 id="expedition-title">Expedition board</h2>
+        </div>
+
+        <div class="route-list" id="route-list" aria-label="Available routes"></div>
+
+        <article class="dossier" aria-live="polite">
+          <p class="eyebrow">Active lead</p>
+          <h3 id="active-route-name">Lantern Market</h3>
+          <p id="active-route-copy">
+            A jade broker vanished beneath paper lanterns, leaving only a
+            lacquered compass and a receipt marked with moon ink.
+          </p>
+          <dl class="route-stats">
+            <div>
+              <dt>Terrain</dt>
+              <dd id="active-route-terrain">Crowded alleys</dd>
+            </div>
+            <div>
+              <dt>Threat</dt>
+              <dd id="active-route-risk">Whisper guild</dd>
+            </div>
+            <div>
+              <dt>Reward</dt>
+              <dd id="active-route-reward">Compass shard</dd>
+            </div>
+          </dl>
+          <button class="button primary wide" id="launch-expedition" type="button">
+            Advance expedition
+          </button>
+        </article>
+      </section>
+
+      <section id="relic" class="section relic-section" aria-labelledby="relic-title">
+        <div class="section-heading">
+          <p class="eyebrow">Relic assembly</p>
+          <h2 id="relic-title">Recover the Jade Heart</h2>
+        </div>
+
+        <div class="relic-layout">
+          <div class="map-panel" aria-label="Expedition map">
+            <span class="map-line"></span>
+            <button class="map-point active" data-route="market" type="button">
+              <span>Lantern Market</span>
+            </button>
+            <button class="map-point" data-route="ruins" type="button">
+              <span>Monsoon Ruins</span>
+            </button>
+            <button class="map-point" data-route="observatory" type="button">
+              <span>Jade Observatory</span>
+            </button>
+          </div>
+
+          <div class="fragment-panel">
+            <ol class="fragment-steps" id="fragment-steps" aria-label="Recovered fragments">
+              <li data-fragment="market">Compass shard</li>
+              <li data-fragment="ruins">Temple glyph</li>
+              <li data-fragment="observatory">Star lens</li>
+            </ol>
+            <button class="button ghost wide" id="scan-relic" type="button">Decode jade cipher</button>
+            <p id="cipher-result" class="cipher-result">
+              The cipher waits for all three fragments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="chronicle" class="section chronicle" aria-labelledby="chronicle-title">
+        <div class="section-heading">
+          <p class="eyebrow">Field notes</p>
+          <h2 id="chronicle-title">Chronicle log</h2>
+        </div>
+        <ul id="clue-log" class="clue-log" aria-live="polite">
+          <li>Select a route and advance the expedition to begin the pursuit.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Pursuit of Jade — built as a self-contained static adventure app.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
